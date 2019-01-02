@@ -1,4 +1,4 @@
-
+# 感谢[Qiubaiying](http://qiubaiying.github.io), 从他的项目fork来的。
 
 ![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-home.png)
 
