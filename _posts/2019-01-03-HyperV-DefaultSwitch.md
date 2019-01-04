@@ -23,4 +23,4 @@ HyperV创建虚拟机后，如果使用远程桌面访问，有时会出现能�
 ![Internet协议版本4属性](https://fm9t.github.io/img/blogimg/20190103003.jpg)
 
 ### 4.在高级中修改DNS，将mshome.net添加到附加这些DNS后缀里：
-![DNS](https://fm9t.github.io/img/blogimg/20190103003.jpg)
+![DNS](https://fm9t.github.io/img/blogimg/20190103004.jpg)
