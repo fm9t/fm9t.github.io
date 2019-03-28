@@ -2,7 +2,7 @@
 layout:     post
 title:      Babel7 babelrc文件
 subtitle:   Babel7 babelrc文件设置和常用插件
-date:       2019-01-15
+date:       2019-03-28
 author:     BY
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
