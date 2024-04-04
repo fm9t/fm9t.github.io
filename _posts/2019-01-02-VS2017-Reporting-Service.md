@@ -4,7 +4,7 @@ title:      VS2017 Reporting Service开发
 subtitle:   VS2017 Reporting Service开发
 date:       2019-01-02
 author:     BY
-header-img: img/post-bg-ios9-web.jpg
+header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - C#
