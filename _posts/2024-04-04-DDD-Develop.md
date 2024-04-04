@@ -2,7 +2,7 @@
 layout:     post
 title:      DDD开发实践
 subtitle:   使用.net core进行项目开发实践
-date:       
+date:       2024-03-19
 author:     BY
 header-img: img/post-bg-debug.png
 catalog: true
