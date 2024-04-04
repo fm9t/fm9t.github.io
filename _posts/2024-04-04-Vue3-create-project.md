@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      DDD开发实践
-subtitle:   使用.net core进行项目开发实践
+title:      Vue3项目模板创建
+subtitle:   使用Vue3+TS+Element Plus+TailwindCSS+Pinia+Vue Router开发前端项目
 date:       2024-03-20
 author:     BY
 header-img: img/post-bg-debug.png
