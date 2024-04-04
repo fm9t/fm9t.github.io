@@ -62,8 +62,8 @@ kramdown:
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: 7b563db1444fd22285d8                            #生成的clientID
-  clientSecret: 311e13f57e7964aa6c131cae995146fbd0cda2f2    #生成的clientSecret
+  clientID: 11dc5b5a4f79a0e35da2                            #生成的clientID
+  clientSecret: 6aff4973e478b58cee7a341fb5646b4813518d6f    #生成的clientSecret
   repo: fm9t.github.io    #仓库名称
   owner: fm9t    #github用户名
   admin: fm9t
