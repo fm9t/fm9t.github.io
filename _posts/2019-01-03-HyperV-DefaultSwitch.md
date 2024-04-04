@@ -4,7 +4,7 @@ title:      使用机器名访问HyperV虚拟机
 subtitle:   使用机器名访问HyperV虚拟机
 date:       2019-01-03
 author:     BY
-header-img: img/post-bg-debug-1.png
+header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - HyperV

@@ -4,7 +4,7 @@ title:      Babel7 babelrc文件
 subtitle:   Babel7 babelrc文件设置和常用插件
 date:       2019-03-28
 author:     BY
-header-img: img/post-bg-debug-1.png
+header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - babel 7

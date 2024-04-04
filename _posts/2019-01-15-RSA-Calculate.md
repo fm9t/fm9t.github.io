@@ -4,7 +4,7 @@ title:      RSA计算过程及RSA密钥生成代码
 subtitle:   RSA计算过程及RSA密钥生成代码
 date:       2019-01-15
 author:     BY
-header-img: img/post-bg-debug-1.png
+header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - C#

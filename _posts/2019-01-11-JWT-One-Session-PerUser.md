@@ -4,7 +4,7 @@ title:      JWT分发新Token时失效旧Token
 subtitle:   JWT分发新Token时失效旧Token
 date:       2019-01-11
 author:     BY
-header-img: img/post-bg-debug-1.png
+header-img: img/post-bg-debug.png
 catalog: true
 tags:
     - C#
