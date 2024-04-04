@@ -4,7 +4,7 @@ title:      Vue3项目模板创建
 subtitle:   使用Vue3+TS+Element Plus+TailwindCSS+Pinia+Vue Router开发前端项目
 date:       2024-03-20
 author:     BY
-header-img: img/post-bg-debug.png
+header-img: img/post-bg-debug-1.png
 catalog: true
 tags:
     - Vue3

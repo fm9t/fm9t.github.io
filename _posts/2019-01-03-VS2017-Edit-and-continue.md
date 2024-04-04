@@ -4,7 +4,7 @@ title:      VS2017 调试时编辑并继续功能
 subtitle:   VS2017 调试时编辑并继续功能
 date:       2019-01-03
 author:     BY
-header-img: img/post-bg-ios9-web.jpg
+header-img: img/post-bg-debug-1.png
 catalog: true
 tags:
     - C#
