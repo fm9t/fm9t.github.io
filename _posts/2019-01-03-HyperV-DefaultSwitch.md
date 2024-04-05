@@ -1,9 +1,9 @@
 ---
 layout:     post
 title:      使用机器名访问HyperV虚拟机
-subtitle:   使用机器名访问HyperV虚拟机
+subtitle:   
 date:       2019-01-03
-author:     BY
+author:     ZSJ
 header-img: img/post-bg-debug.png
 catalog: true
 tags:

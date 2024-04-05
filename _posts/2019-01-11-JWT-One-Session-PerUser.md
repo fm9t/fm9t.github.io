@@ -1,9 +1,9 @@
 ---
 layout:     post
 title:      JWT分发新Token时失效旧Token
-subtitle:   JWT分发新Token时失效旧Token
+subtitle:   
 date:       2019-01-11
-author:     BY
+author:     ZSJ
 header-img: img/post-bg-debug.png
 catalog: true
 tags:

@@ -1,9 +1,9 @@
 ---
 layout:     post
-title:      Babel7 babelrc文件
-subtitle:   Babel7 babelrc文件设置和常用插件
+title:      Babel7 babelrc文件设置和常用插件
+subtitle:   
 date:       2019-03-28
-author:     BY
+author:     ZSJ
 header-img: img/post-bg-debug.png
 catalog: true
 tags:

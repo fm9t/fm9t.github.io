@@ -1,9 +1,9 @@
 ---
 layout:     post
-title:      DDD开发实践
-subtitle:   使用.net core进行项目开发实践
+title:      使用.net core进行DDD开发实践
+subtitle:   
 date:       2024-03-19
-author:     BY
+author:     ZSJ
 header-img: img/post-bg-debug.png
 catalog: true
 tags:

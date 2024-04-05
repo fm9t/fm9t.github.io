@@ -1,9 +1,9 @@
 ---
 layout:     post
 title:      Vue3项目模板创建
-subtitle:   使用Vue3+TS+Element Plus+TailwindCSS+Pinia+Vue Router开发前端项目
+subtitle:   
 date:       2024-03-20
-author:     BY
+author:     ZSJ
 header-img: img/post-bg-debug.png
 catalog: true
 tags:
