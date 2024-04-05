@@ -315,3 +315,94 @@ tags:
       esbuild: {
         drop: ['console', 'debugger']
       },
+      build: {
+        rollupOptions: {
+          external: ['vue', 'vue-demi'],
+          output: {
+            chunkFileNames: 'js/[name]-[hash].js',
+            entryFileNames: 'js/[name]-[hash].js',
+            manualChunks(id) {
+              if (id.indexOf('node_modules') !== -1) {
+                let newId = id.toString();
+                if (newId.indexOf('/.pnpm/') !== -1) {
+                  newId = newId.replace('/.pnpm/', '/');
+                }
+                // 部分较大的包单独做为一个资源，其他的作为一个资源
+                if (newId.toString().split('node_modules/')[1].split('/')[0].indexOf('element-plus') !== -1) {
+                  return 'element-plus';
+                } else if (newId.toString().split('node_modules/')[1].split('/')[0].indexOf('vue') !== -1) {
+                  return 'vue';
+                } else if (newId.toString().split('node_modules/')[1].split('/')[0].indexOf('xlsx') !== -1) {
+                  return 'xlsx';
+                }
+                return 'vendor';
+              } else {
+                return 'index';
+              }
+            }
+          },
+        }
+      }
+
+# 针对一些包使用cdn的处理方式
+## 安装vite-plugin-html， rollup-plugin-external-globals
+    pnpm install -D vite-plugin-html rollup-plugin-external-globals
+
+## 在vite.config.ts中引入
+    import { createHtmlPlugin } from 'vite-plugin-html'
+    import externalGlobals from 'rollup-plugin-external-globals';
+
+## 增加externalGlobals和CDN引入内容，以下内容放置于plugins中
+    // 不要在css文件中出现准备rollup-plugin-external-globals的变量，包括注释内容中
+    externalGlobals({
+      vue: "Vue",
+      "vue-demi": "VueDemi",
+      "element-plus": "ElementPlus",
+    }),
+    // 此部分可以不用，生成后在index.html中手工添加
+    createHtmlPlugin({
+      template: './index.html',
+      inject: {
+        tags:[
+          {
+            injectTo: 'head',
+            tag: 'script',
+            attrs: {
+              src: 'https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.global.min.js',
+              defer: true
+            }
+          },
+          {
+            // 使用了pinia时，使用cdn引入vue, 就必须引入vue-demi, pinia需要依据vue-demi判断vue的版本
+            injectTo: 'head',
+            tag: 'script',
+            attrs: {
+              src: 'https://cdn.bootcdn.net/ajax/libs/vue-demi/0.14.6/index.iife.min.js',
+              defer: true
+            }
+          },
+          {
+            injectTo: 'head',
+            tag: 'script',
+            attrs: {
+              src: 'https://cdn.bootcdn.net/ajax/libs/element-plus/2.3.12/index.full.min.js',
+              defer: true
+            }
+          },
+          // 由于css覆盖的需要，elementplus对应的css文件需要放在其他css之后，因此放在body的开头
+          {
+            injectTo: 'body-prepend',
+            tag: 'link',
+            attrs: {
+              rel: 'stylesheet',
+              crossorigin: true,
+              href: 'https://cdn.bootcdn.net/ajax/libs/element-plus/2.3.12/index.css',
+            }
+          },
+        ]
+      }
+    }),
+
+# 使用iis启动网站测试打包后的站点
+    进入目录"C:\Program Files\IIS Express\", 使用powershell运行
+    .\iisexpress.exe /path:F:\source\ZsjTestApiWithVue\ZsjTest.Web\dist\ /port:9090
