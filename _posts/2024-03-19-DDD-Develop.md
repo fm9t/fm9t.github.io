@@ -37,8 +37,7 @@ tags:
 领域模型，项目中最重的一层，依赖于Infrastrucure层，单独的领域模型分别放在各自的目录下，每个领域模型目录下除了对应的模型外还有领域服务接口。
 
 ### Domain.Repository
-领域仓储抽象层，依赖于Domain层和Infrastructure层，在.net core中由于EF Core中的DbContext已经按Unit of Work来设计了，因此没有必要使用仓储接口，可以直接使用继续自DbContext的抽象类来作为仓储，可以参考:
-![微软文档](https://learn.microsoft.com/zh-cn/aspnet/core/data/ef-mvc/advanced?view=aspnetcore-8.0#create-an-abstraction-layer)
+领域仓储抽象层，依赖于Domain层和Infrastructure层，在.net core中由于EF Core中的DbContext已经按Unit of Work来设计了，因此没有必要使用仓储接口，可以直接使用继续自DbContext的抽象类来作为仓储，可以参考:https://learn.microsoft.com/zh-cn/aspnet/core/data/ef-mvc/advanced?view=aspnetcore-8.0#create-an-abstraction-layer 。
 之所以使用抽象类，是为了将数据库细节隐藏起来，如果更换数据库，只需要更换数据映射的配置。
 
 ### Domain.Repository.Impl
