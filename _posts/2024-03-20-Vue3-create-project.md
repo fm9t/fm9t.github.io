@@ -237,6 +237,11 @@ tags:
     createApp(App).use(createPinia()).mount('#app');
 
 ## 在src下创建stores目录， 增加useUserInfoStore.ts文件，内容如下：
+    // 对于pinia store， 如果使用解构赋值，会导致基本类型属性失去响应性，
+    // 要么使用pinia提供的storeToRefs来包装store, 要么直接如下面示例一样,
+    // 始终直接****Store.XXXX来操作，个人建议这样操作，这种情况下，
+    // 不用写.value, 并且变量来源更明确
+    
     import { defineStore } from 'pinia';
     import { ref } from 'vue';
     import type UserInfoDto from '../types/UserInfoDto';
