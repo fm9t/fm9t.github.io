@@ -345,6 +345,7 @@ tags:
       }
 
 # 针对一些包使用cdn的处理方式
+Element Plus对应文件较大，需要衡量是否通过CDN引入，如果使用了大部分的Element Plus组件，可以通过CDN引入，如果只使用了少数几种Element Plus组件，直接使用按需引入来打包会更小
 ## 安装vite-plugin-html， rollup-plugin-external-globals
     pnpm install -D vite-plugin-html rollup-plugin-external-globals
 
@@ -364,7 +365,7 @@ tags:
       ];
 
       if (mode.mode === 'production') {
-        // 不要在css文件中出现准备rollup-plugin-external-globals的变量，包括注释内容中
+        // 不要在css文件中使用注释，会影响rollup
         plugins.push(externalGlobals({
           vue: "Vue",
           "vue-demi": "VueDemi",
