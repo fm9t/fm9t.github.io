@@ -1,17 +1,3 @@
----
-layout:     post
-title:      Vue3项目模板创建
-subtitle:   
-date:       2024-03-20
-author:     ZSJ
-header-img: img/post-bg-debug.png
-catalog: true
-tags:
-    - Vue3
-    - typescript
-    - tailwind css
----
-
 # create project
     mkdir ZsjTest.Web
     npm create vite@latest zsjtest.web -- --template vue-ts
@@ -140,7 +126,7 @@ tags:
     import { fontFamily } from 'tailwindcss/defaultTheme';
     /*
     在index.html页面head部分加入网页字体信息：
-    <link href="https://fonts.googlefonts.cn/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googlefonts.cn/css?family=Noto+Sans+SC" rel="stylesheet">
     这里的fonts.googlefonts.cn是googlefont在国内的站点，可以进入https://googlefonts.cn/ 查询对应字体使用方法
     */
 
@@ -149,7 +135,7 @@ tags:
       theme: {
         fontFamily: {
           sans: [
-            '"Source Sans Pro"',
+            '"Noto Sans SC"',
             ...fontFamily.sans,
           ],
         },
@@ -164,25 +150,26 @@ tags:
     @tailwind components;
     @tailwind utilities;
 
-    /* 下面可以继续放一些全局class */
     body {
-      margin: 0;
-      padding: 0;
       --el-color-primary: #01916d;
       --el-color-primary-dark-2: #01815d;
       --el-color-primary-light-3: #01512d;
+      --el-font-family: '"Noto Sans SC"';
     }
-    #app {
-      display: flex;
-      flex-flow: column;
-      min-height: 100vh;
-      min-height: calc(var(--vh, 1vh) * 100);
+
+    .el-main {
+      padding: 0 !important;
     }
-    html.dark img,
-    html.dark .dark-img-bg {
+
+    html.dark img {
       background-color: white;
       filter: brightness(0.8) saturate(1.25);
     }
+
+## 解决elementplus 和tailwind css冲突问题，tailwindcss会导致element plus的按钮背景透明，使用以下方式解决
+    npm install @unocss/reset
+    在main.ts的import './tailwind.css';之后引入以下内容：
+    import '@unocss/reset/tailwind-compat.css';
 
 # 引入Element Plus, 推荐使用自动导入方式，但初期可以使用手动导入，以了解具体过程
     npm install element-plus
@@ -241,7 +228,10 @@ tags:
     // 要么使用pinia提供的storeToRefs来包装store, 要么直接如下面示例一样,
     // 始终直接****Store.XXXX来操作，个人建议这样操作，这种情况下，
     // 不用写.value, 并且变量来源更明确
-    
+
+    // 有些需要持久化的store(即用户F5刷新页面时仍然要保持对应值)，可以使用
+    // pinia-plugin-persistedstate， 注意此时store中必须使用ref, 不能使用reactive
+
     import { defineStore } from 'pinia';
     import { ref } from 'vue';
     import type UserInfoDto from '../types/UserInfoDto';
@@ -351,6 +341,7 @@ tags:
 
 # 针对一些包使用cdn的处理方式
 Element Plus对应文件较大，需要衡量是否通过CDN引入，如果使用了大部分的Element Plus组件，可以通过CDN引入，如果只使用了少数几种Element Plus组件，直接使用按需引入来打包会更小
+
 ## 安装vite-plugin-html， rollup-plugin-external-globals
     pnpm install -D vite-plugin-html rollup-plugin-external-globals
 
@@ -370,7 +361,7 @@ Element Plus对应文件较大，需要衡量是否通过CDN引入，如果使�
       ];
 
       if (mode.mode === 'production') {
-        // 不要在css文件中使用注释，会影响rollup
+        // 不要在css文件中出现注释，会影响rollup
         plugins.push(externalGlobals({
           vue: "Vue",
           "vue-demi": "VueDemi",
@@ -459,11 +450,6 @@ Element Plus对应文件较大，需要衡量是否通过CDN引入，如果使�
     }
 
 
-# 使用iis启动网站测试打包后的站点
-    进入目录"C:\Program Files\IIS Express\", 使用powershell运行
-    .\iisexpress.exe /path:F:\source\ZsjTestApiWithVue\ZsjTest.Web\dist\ /port:9090
-
-
-# 使用iis启动网站测试打包后的站点
+# 使用iis express启动网站测试打包后的站点
     进入目录"C:\Program Files\IIS Express\", 使用powershell运行
     .\iisexpress.exe /path:F:\source\ZsjTestApiWithVue\ZsjTest.Web\dist\ /port:9090
