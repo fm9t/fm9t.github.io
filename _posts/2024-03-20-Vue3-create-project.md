@@ -1,3 +1,17 @@
+---
+layout:     post
+title:      Vue3项目模板创建
+subtitle:   
+date:       2024-04-14
+author:     ZSJ
+header-img: img/post-bg-debug.png
+catalog: true
+tags:
+    - Vue3
+    - typescript
+    - tailwind css
+---
+
 # create project
     mkdir ZsjTest.Web
     npm create vite@latest zsjtest.web -- --template vue-ts
