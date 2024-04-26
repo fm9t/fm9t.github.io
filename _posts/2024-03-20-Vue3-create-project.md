@@ -126,7 +126,7 @@
     import { fontFamily } from 'tailwindcss/defaultTheme';
     /*
     在index.html页面head部分加入网页字体信息：
-    <link href="https://fonts.googlefonts.cn/css?family=Noto+Sans+SC" rel="stylesheet">
+    <link href="https://fonts.googlefonts.cn/css?family=Source+Sans+Pro" rel="stylesheet">
     这里的fonts.googlefonts.cn是googlefont在国内的站点，可以进入https://googlefonts.cn/ 查询对应字体使用方法
     */
 
@@ -135,7 +135,7 @@
       theme: {
         fontFamily: {
           sans: [
-            '"Noto Sans SC"',
+            '"Source Sans Pro"',
             ...fontFamily.sans,
           ],
         },
@@ -154,22 +154,32 @@
       --el-color-primary: #01916d;
       --el-color-primary-dark-2: #01815d;
       --el-color-primary-light-3: #01512d;
-      --el-font-family: '"Noto Sans SC"';
     }
 
     .el-main {
       padding: 0 !important;
     }
 
-    html.dark img {
-      background-color: white;
-      filter: brightness(0.8) saturate(1.25);
+    /* 修复tailwindcss 与element plus按钮背景的冲突*/
+    .el-button {
+      background-color: var(--el-button-bg-color);
     }
-
-## 解决elementplus 和tailwind css冲突问题，tailwindcss会导致element plus的按钮背景透明，使用以下方式解决
-    npm install @unocss/reset
-    在main.ts的import './tailwind.css';之后引入以下内容：
-    import '@unocss/reset/tailwind-compat.css';
+    /*
+    也可以在tailwind.config.ts中增加以下配置
+    corePlugins: {
+      preflight: false,
+    },
+    这个配置会不加载tailwind css中的预设置css, 即preflight.css，可以去UNPKG下载tailwind对应版本的preflight.css
+    删除以下样式中的background-color: transparent; /* 2 */，然后在main.ts中直接引入这个preflight.css：
+    button,
+    [type='button'],
+    [type='reset'],
+    [type='submit'] {
+      -webkit-appearance: button; /* 1 */
+      background-color: transparent; /* 2 */
+      background-image: none; /* 2 */
+    }
+    */
 
 # 引入Element Plus, 推荐使用自动导入方式，但初期可以使用手动导入，以了解具体过程
     npm install element-plus
